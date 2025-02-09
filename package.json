@@ -1,0 +1,28 @@
+{
+  "name": "furniture-server",
+  "version": "1.0.0",
+  "description": "backend server for the furniture app",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "test": "mocha --timeout 5000"
+  },
+  "author": "Abdurahman Jemal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.1.0",
+    "mongoose": "^8.9.6",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^11.1.0",
+    "supertest": "^7.0.0"
+  }
+}
