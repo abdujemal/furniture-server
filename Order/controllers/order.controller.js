@@ -35,6 +35,21 @@ export const getOrders = async (req, res) => {
     }
 };
 
+export const getOrdersbyMonth = async (req, res) => {
+    try{
+        const { year, month } = req.query
+
+        if(!year && !month){
+            res.status(400).json({msg: "Missing Data!"})
+        }
+
+        const result = await Services.getOrdersbyMonth(parseInt(year), parseInt(month))
+        res.status(200).json({result});
+    }catch(error){
+        res.status(500).json({error});
+    }
+}
+
 export const getOrder = async (req, res) => {
     try{
         const { id } = req.params;
