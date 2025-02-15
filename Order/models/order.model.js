@@ -2,6 +2,10 @@
 import mongoose from 'mongoose';
 
 const OrderSchema = new mongoose.Schema({
+    _id: {
+      type: String,
+      required: true,
+    },
     customerName: {
       type: String,
       required: true,
@@ -89,7 +93,7 @@ const OrderSchema = new mongoose.Schema({
     },
     imgUrl: {
       type: String,
-      required: true,
+      default: "",
     },
     productDescription: {
       type: String,

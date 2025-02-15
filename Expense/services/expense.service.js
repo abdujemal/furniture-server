@@ -7,7 +7,9 @@ const addExpense = async (expenseModel) => {
     await expense.save();
     return expense;
   } catch (error) {
-    throw new Error(`Error adding expense: ${error.message}`);
+    console.log(error);
+    
+    throw new Error(`Error adding expense`);
   }
 };
 
@@ -20,7 +22,9 @@ const searchExpense = async (sellerName) => {
     const expenses = await Expense.find(query);
     return expenses;
   } catch (error) {
-    throw new Error(`Error searching expenses: ${error.message}`);
+    console.log(error);
+
+    throw new Error(`Error searching expenses`);
   }
 };
 
@@ -42,7 +46,9 @@ const getExpenses = async (quantity, status, page) => {
 
     return expenses;
   } catch (error) {
-    throw new Error(`Error fetching expenses: ${error.message}`);
+    console.log(error);
+
+    throw new Error(`Error fetching expenses`);
   }
 };
 
@@ -52,7 +58,9 @@ const updateExpense = async (id, expenseModel) => {
     const expense = await Expense.findByIdAndUpdate(id, expenseModel, { new: true });
     return expense;
   } catch (error) {
-    throw new Error(`Error updating expense: ${error.message}`);
+    console.log(error);
+
+    throw new Error(`Error updating expense`);
   }
 };
 
@@ -62,7 +70,9 @@ const deleteExpense = async (id) => {
     const expense = await Expense.findByIdAndDelete(id);
     return expense;
   } catch (error) {
-    throw new Error(`Error updating expense: ${error.message}`);
+    console.log(error);
+
+    throw new Error(`Error deleting expense`);
   }
 };
 

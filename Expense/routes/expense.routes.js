@@ -4,19 +4,19 @@ import expenseController from "../controllers/expense.controller.js"
 const router = express.Router();
 
 // Add Expense
-router.post('/expenses', expenseController.addExpense);
+router.post('', expenseController.addExpense);
 
-// Search Expenses by Seller Name
-router.get('/expenses/search', expenseController.searchExpense);
+// Search by Seller Name
+router.get('/search', expenseController.searchExpense);
 
 // Get Expenses based on filters
-router.get('/expenses', expenseController.getExpenses);
+router.get('', expenseController.getExpenses);
 
 // Update Expense
-router.put('/expenses/:id', expenseController.updateExpense);
+router.put('/:id', expenseController.updateExpense);
 
 // Delete Expense
-router.delete('/expenses/:id', expenseController.deleteExpense);
+router.delete('/:id', expenseController.deleteExpense);
 
 
 export default router;

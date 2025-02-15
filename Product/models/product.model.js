@@ -25,7 +25,7 @@ const RawMaterialSchema = new mongoose.Schema({
     tags: { type: [String], default: [] },
     rawMaterials: { type: [RawMaterialSchema], default: [] },
     rawMaterialIds: { type: [String], default: [] },
-  });
+  }, { timestamps: true });
 
 const ProductModel =  mongoose.model('Product', ProductSchema);
 

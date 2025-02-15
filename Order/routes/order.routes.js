@@ -3,7 +3,14 @@ import * as orderController from "../controllers/order.controller.js"
 
 const router = express.Router();
 
-router.post('/orders', orderController.addOrder);
-router.get('/orders', orderController.getOrders);
+router.post('', orderController.addOrder);
+router.get('', orderController.getOrders);
+router.get('/byKV', orderController.getOrdersByKv);
+router.get('/:id', orderController.getOrder);
+router.post('/:id', orderController.updateOrder);
+router.delete('/:id', orderController.deleteOrder);
+
+
+
 
 export default router;

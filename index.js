@@ -5,7 +5,10 @@ import expenseRoutes from "./Expense/routes/expense.routes.js"
 import itemRoutes from "./Item/routes/item.routes.js"
 import orderRoutes from "./Order/routes/order.routes.js"
 import productRoutes from "./Product/routes/product.routes.js"
+import employeesRoutes from "./Employee/routes/employee.routes.js"
 import reviewRoutes from "./Customer/routes/review.routes.js"
+import employeesActivityRoutes from "./Employee/routes/employee.activity.routes.js"
+import mainRoutes from "./core/routes/main.routes.js"
 
 import { connectDb } from "./core/db.js";
 import bodyParser from "body-parser";
@@ -30,13 +33,17 @@ app.use(express.urlencoded({ extended: true }));
 // }));
 // app.use(bodyParser.json());
 
-app.use('/api', customerRoutes);
-app.use('/api', expenseRoutes);
-app.use('/api', itemRoutes);
-app.use('/api', orderRoutes);
-app.use('/api', productRoutes);
-app.use('/api', reviewRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/expenses', expenseRoutes);
+app.use('/api/items', itemRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/employees', employeesRoutes);
+app.use("/api/employee-activities", employeesActivityRoutes)
 
+// the stupid search function
+app.use("/api/main", mainRoutes)
 
 app.listen(port, () => {
     connectDb().then((v)=>{

@@ -10,11 +10,14 @@ const storage = multer.memoryStorage(); // Store files in memory
 const upload = multer({
   storage: storage,
 }).fields([
-  { name: 'images' },       
+  { name: 'photos' },       
   { name: 'files' },
 ]);
 
-router.post('/products', upload, productController.addProduct);
-router.get('/products', productController.getProducts);
+router.post('', upload, productController.addProduct);
+router.get('', productController.getProducts);
+router.get('/search', productController.searchProducts);
+router.put('/:productId',  upload, productController.updateProduct);
+router.delete('/:productId', productController.deleteProduct);
 
 export default router;

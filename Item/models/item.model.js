@@ -12,6 +12,7 @@ const TimeLineSchema = new mongoose.Schema({
   }, { _id: false });
   
   const ItemSchema = new mongoose.Schema({
+    _id: { type: String, required: true },  // Custom ID
     image: {
       type: String,
       default: null,
@@ -38,7 +39,7 @@ const TimeLineSchema = new mongoose.Schema({
     },
     lastUsedFor: {
       type: String,
-      required: true,
+      default: "",
     },
     quantity: {
       type: Number,
