@@ -44,7 +44,7 @@ export const getOrdersbyMonth = async (req, res) => {
         }
 
         const result = await Services.getOrdersbyMonth(parseInt(year), parseInt(month))
-        res.status(200).json({result});
+        res.status(200).json(result);
     }catch(error){
         res.status(500).json({error});
     }
