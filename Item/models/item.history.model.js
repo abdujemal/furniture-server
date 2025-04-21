@@ -30,7 +30,7 @@ const itemHistorySchema = new mongoose.Schema({
   },
   itemImg: {
     type: String,
-    required: true,
+    default: ""
   },
   itemCategory: {
     type: String,
