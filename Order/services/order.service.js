@@ -1,4 +1,4 @@
-import Order from "../models/order.model.js"
+import Order from "../models/orderN.model.js"
 
 export const addOrder = async (data) => {
     try{
