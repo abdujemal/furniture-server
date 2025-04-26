@@ -1,5 +1,6 @@
 // models/customer.model.js
 import mongoose from 'mongoose';
+import { nanoid } from 'nanoid';
 
 const RawMaterialSchema = new mongoose.Schema({
     id: { type: String, required: true },
@@ -11,6 +12,7 @@ const RawMaterialSchema = new mongoose.Schema({
   }, { _id: false });
   
   const ProductSchema = new mongoose.Schema({
+    _id: { type: String, default: () => nanoid(), },
     name: { type: String, required: true },
     sku: { type: String, required: true },
     category: { type: String, required: true },

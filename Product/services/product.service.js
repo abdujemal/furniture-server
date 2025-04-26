@@ -51,6 +51,7 @@ export const  getProducts = async (quantity,  category, page) => {
 
   try {
     const products = await Product.find(filters).skip(skip).limit(quantity).sort({ createdAt: -1 }).exec();
+    console.log({products});
     return products;
   } catch (error) {
     console.log(error);
@@ -115,12 +116,15 @@ export const updateProduct = async (productId, data, images = [], files = [])=> 
 
 export const searchProducts = async (key, value, length)=> {
   const searchCriteria = {};
-  if(key == "tags") searchCriteria[key] = { $in: [value]  }; // case insensitive
-  else searchCriteria[key] = { $regex: value, $options: 'i' }; // case insensitive
-   
-
+  if (key === "tags") {
+    searchCriteria[key] = { $in: [value] };
+  } else {
+    searchCriteria[key] = { $regex: value, $options: 'i' };
+  }
+  
   try {
-    const products = await Product.find(searchCriteria).limit(length);
+    const products = await Product.find(searchCriteria).limit(length).exec();
+    console.log({products});
     return products;
   } catch (error) {
     console.log(error);
