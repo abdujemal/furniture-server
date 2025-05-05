@@ -98,6 +98,35 @@ export const getFilePathFromDownloadUrl = (downloadUrl) =>{
     return path;
 }
 
+export const searchFromListKey = async (col, field, innerField, value) =>{
+    try{
+        if(value && value.length == 0){
+            return [];
+        }
+        var query = {};
+        if(field && value){
+            query[field] = {
+                  $elemMatch: {}
+                };   
+            query[field]["$elemMatch"][innerField] = value;       
+        }
+
+        console.log(query);        
+    
+        const res = await mongoose.connection
+                    .collection(col) // Use your collection name
+                    .find(query)
+                    .toArray();  // Convert the cursor to an array
+        
+        console.log(res);
+        return res
+
+    }catch{
+        console.error(error);
+        throw new Error('Error in search');
+    }
+}
+
 export const searchAll = async (col, key, val, key2, val2, isSearch = false, isArray = false, limit) =>{
     try{
 

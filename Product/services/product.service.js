@@ -67,7 +67,8 @@ export const updateProduct = async (productId, data, images = [], files = [])=> 
     var relatedFileUrls = Array.isArray(data.relatedFiles) ? data.relatedFiles : data.relatedFiles ?  [data.relatedFiles] : [];
     var imageUrls = Array.isArray(data.images) ? data.images : data.images ? [data.images] : [];
     var tags = Array.isArray(data.tags) ? data.tags : data.tags ? [data.tags] : [];
-    var rawMaterials = JSON.parse(`[${data.rawMaterials.replace("(", '').replace(")", '')}]`);
+    // var rawMaterials = JSON.parse(`[${data.rawMaterials.replace("(", '').replace(")", '')}]`);
+    var rawMaterials = JSON.parse(data.rawMaterials);
     var rawMaterialIds = Array.isArray(data.rawMaterialIds) ? data.rawMaterialIds : data.rawMaterialIds ? [data.rawMaterialIds] : [];
 
     console.log(images?.length);

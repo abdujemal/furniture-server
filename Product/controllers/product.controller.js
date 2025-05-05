@@ -57,7 +57,7 @@ export const searchProducts = async (req, res)=> {
 // Update product
 export const updateProduct = async (req, res) => {
   const { productId } = req.params;
-
+  
   try {
     const result = await Services.updateProduct(productId, req.body, req.files['photos'], req.files['files']);
     res.status(200).json({result});

@@ -14,6 +14,20 @@ export const searchAll = async (req, res) =>{
     }
 }
 
+export const searchFromListKey = async (req, res) =>{
+    try{
+        const { col } = req.params;
+        const { field, innerField, value } = req.query;
+    
+        const result = await MainServices.searchFromListKey(
+            String(col).toLocaleLowerCase(), field, innerField, value);
+    
+        res.status(200).json(result)
+    }catch(error){
+        res.status(500).json({ message: error.message });
+    }
+}
+
 export const getChartData = async (req, res) =>{
     try{
         const { col } = req.params;

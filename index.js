@@ -1,5 +1,6 @@
-import express from "express";
 import d from "dotenv";
+d.config();
+import express from "express";
 import customerRoutes from "./Customer/routes/customer.routes.js"
 import expenseRoutes from "./Expense/routes/expense.routes.js"
 import itemRoutes from "./Item/routes/item.routes.js"
@@ -11,9 +12,6 @@ import employeesActivityRoutes from "./Employee/routes/employee.activity.routes.
 import mainRoutes from "./core/routes/main.routes.js"
 
 import { connectDb } from "./core/db.js";
-import bodyParser from "body-parser";
-
-d.config();
 
 export const app = express();
 
